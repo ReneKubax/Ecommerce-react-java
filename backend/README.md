@@ -40,7 +40,7 @@ Now, as we have learned about different system components, then let's start.
 
 ### System Boundary *Architecture* - μServices Landscape
 
-![System Boundary](app-architecture.drawio.png)
+![Diseño sin título (20)](https://github.com/user-attachments/assets/aa0d8ef3-beb3-4eea-9e59-ba885ded8dac)
 
 ### Required software
 

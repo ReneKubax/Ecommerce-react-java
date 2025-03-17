@@ -26,7 +26,7 @@ A modern and experimental e-commerce platform built with React, focusing on spor
 1. Clone the repository
 ```bash
 git clone url
-cd sport-area-shop-front
+cd frontend
 ```
 
 2. Install dependencies

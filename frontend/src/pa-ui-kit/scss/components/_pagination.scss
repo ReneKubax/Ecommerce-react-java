@@ -1,0 +1,62 @@
+.pagination {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+
+	&__list {
+		display: inline-flex;
+		align-items: center;
+		margin: 0 $spacing-scale-8;
+	}
+
+	&__item {
+		$item: &;
+
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		min-width: $btn-min-height;
+		min-height: $btn-min-height;
+		font-weight: 500;
+		padding: $spacing-scale-3;
+		background-color: $white;
+		border: 2px solid transparent;
+		border-radius: $border-radius-lg;
+		box-shadow: $box-shadow-sm;
+		@include disable-tap-highlight-color;
+		outline: none;
+
+		&:hover:not(#{$item}--selected):not(#{$item}--disabled) {
+			color: darken($color-primary, 10%);
+			border-color: $color-primary;
+			box-shadow: none;
+			border-color: $color-primary;
+			transition: all .15s;
+		}
+
+		&:not(:last-child):not(#{$item}--control) {
+			margin-right: $spacing-scale-4;
+		}
+
+		&--control {
+			color: $icon-color;
+			padding: 0 $btn-padding-x;
+			min-width: auto;
+		}
+
+		&--selected {
+			color: $white;
+			background-color: $color-primary;
+		}
+
+		&--disabled {
+			opacity: .6;
+			box-shadow: none;
+			cursor: auto;
+		}
+
+		&--focus-visible {
+			box-shadow: $btn-focus-box-shadow;
+		}
+	}
+}

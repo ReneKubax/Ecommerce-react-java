@@ -1,0 +1,15 @@
+.brands-carousel {
+	&__item {
+		display: block;
+		background: #fff;
+		width: 14rem;
+		min-height: 7rem;
+		padding: 1rem 2rem;
+		cursor: pointer;
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+	}
+}

@@ -1,0 +1,33 @@
+*,
+*::after,
+*::before {
+	overflow-anchor: none;
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: 100vh;
+}
+
+html {
+	font-size: 62.5%;
+
+	@include media-breakpoint-down('sm') {
+		font-size: 56.25%;
+	}
+}
+
+body {
+	box-sizing: border-box;
+	background-color: $body-bg-color;
+	color: $body-color;
+}
+
+.app-root {
+	display: flex;
+	flex-flow: column nowrap;
+	min-height: 100%;
+}

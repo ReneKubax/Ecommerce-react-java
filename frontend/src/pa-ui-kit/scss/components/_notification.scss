@@ -1,0 +1,100 @@
+@mixin notification-item-transition {
+	&-appear {
+		opacity: 0;
+		transform: scale3d(.6, .6, 1);
+
+		&-active {
+			opacity: 1;
+			transform: scale3d(1, 1, 1);
+			transition: opacity .15s, transform .2s ease-out;
+		}
+	}
+
+	&-enter {
+		opacity: 0;
+		max-height: 0;
+		transform: scale3d(.6, .6, 1);
+
+		&-active {
+			opacity: 1;
+			transform: scale3d(1, 1, 1);
+			max-height: 30rem;
+			transition: max-height .3s, .2s opacity .15s, .2s transform .2s ease-out;
+		}
+	}
+
+	&-exit {
+		opacity: 1;
+		max-height: 30rem;
+
+		&-active {
+			opacity: 0;
+			max-height: 0;
+			transition: opacity .2s ease, max-height .3s .2s;
+		}
+	}
+}
+
+%notification-placement-top {
+	top: 0;
+}
+
+%notification-placement-bottom {
+	bottom: 0;
+}
+
+.notification {
+	$this: &;
+
+	position: fixed;
+	padding: $notification-padding;
+	width: 100%;
+	max-width: $notification-max-width;
+	z-index: $notification-z-index;
+
+	&--top-left {
+		@extend %notification-placement-top;
+
+		left: 0;
+	}
+
+	&--top-right {
+		@extend %notification-placement-top;
+
+		right: 0;
+	}
+
+	&--top-center {
+		@extend %notification-placement-top;
+
+		left: 50%;
+		transform: translate3d(-50%, 0, 0);
+	}
+
+	&--bottom-left {
+		@extend %notification-placement-bottom;
+
+		left: 0;
+	}
+
+	&--bottom-right {
+		@extend %notification-placement-bottom;
+
+		right: 0;
+	}
+
+	&--bottom-center {
+		@extend %notification-placement-bottom;
+
+		left: 50%;
+		transform: translate3d(-50%, 0, 0);
+	}
+
+	&__item {
+		margin-bottom: $notification-item-margin-bottom;
+		box-shadow: $notification-item-box-shadow;
+		transform-origin: top;
+
+		@include notification-item-transition;
+	}
+}

@@ -1,0 +1,36 @@
+.product-gallery {
+	& &__picture {
+		min-height: 0;
+		height: 50rem;
+	}
+
+	&__thumbnail-list {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		align-content: flex-start;
+		border-top: 1px solid $border-color-lighten;
+		padding-bottom: $spacing-scale-6;
+	}
+
+	&__thumbnail {
+		display: inline-block;
+		line-height: 0;
+		margin: $spacing-scale-6 $spacing-scale-6 0 0;
+		padding: $spacing-scale-2;
+		border: 2px solid transparent;
+		border-radius: $border-radius-sm;
+		transition: all .25s;
+		@include disable-tap-highlight-color;
+		cursor: pointer;
+
+		&--selected {
+			border-color: $color-primary;
+		}
+
+		img {
+			width: 8rem;
+			min-height: 8rem;
+		}
+	}
+}

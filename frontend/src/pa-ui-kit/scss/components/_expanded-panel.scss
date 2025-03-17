@@ -1,0 +1,47 @@
+.expanded-panel {
+	$this: &;
+
+	border-color: $expanded-panel-border-color;
+	border-style: solid;
+	border-width: $expanded-panel-border-width;
+
+	&__header {
+		position: relative;
+		display: flex;
+		align-items: center;
+		width: 100%;
+		@include disable-tap-highlight-color;
+
+		&:focus {
+			outline: none;
+		}
+
+		&:hover {
+			color: $expanded-panel-header-hover-color;
+
+			& * {
+				color: inherit;
+			}
+		}
+
+		&--focus-visible {
+			box-shadow: $expanded-panel-header-focus-box-shadow;
+		}
+
+		&-title {
+			flex: 1;
+			text-align: left;
+			color: inherit;
+			padding: $expanded-panel-title-padding-y $expanded-panel-title-padding-x;
+		}
+
+		&-body {
+			padding: $expanded-panel-body-padding-y $expanded-panel-body-padding-x;
+		}
+
+		&-expanded-icon {
+			margin: 0 $expanded-panel-title-padding-y;
+			color: $icon-color;
+		}
+	}
+}

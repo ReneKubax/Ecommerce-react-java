@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es2016",
+        "jsx": "preserve",
+        "baseUrl": ".",
+        "paths": { 
+            "@ui/*": ["./src/pa-ui-kit/components/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@contexts/*": ["./src/contexts/*"],
+            "@store/*": ["./src/store/*"],
+            "@components/*": ["./src/components/*"],
+            "@pages/*": ["./src/pages/*"],
+            "@services/*": ["./src/services/*"],
+            "@remote/*": ["./remote/*"]
+        }
+    },
+    "include": ["src"],
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ]
+}

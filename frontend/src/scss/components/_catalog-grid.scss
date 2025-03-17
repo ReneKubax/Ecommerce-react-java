@@ -1,0 +1,142 @@
+.catalog-grid {
+	$this: &;
+
+	display: block;
+	flex: 1;
+
+	&--framed {
+		#{$this}__body {
+			border-top: 1px solid $border-color-light;
+			border-left: 1px solid $border-color-light;
+			border-radius: 0;
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-flow: row wrap;
+		background-color: $white;
+		border-top: 1px solid $border-color-light;
+		border-left: 1px solid $border-color-light;
+		border-radius: $border-radius-lg $border-radius-lg 0 0;
+	}
+
+	&__pagination {
+		padding: $spacing-scale-8 0;
+
+		.pagination__list {
+			@include media-breakpoint-down("sm") {
+				display: none;
+			}
+		}
+	}
+
+	&__load-more {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: $white;
+		padding: $spacing-scale-8 0;
+		border: 1px solid $border-color-light;
+		border-top-width: 0;
+		border-radius: 0 0 $border-radius-lg $border-radius-lg;
+	}
+
+	&__item {
+		$item: &;
+
+		width: 25%;
+		padding: 0;
+		border-right: 1px solid $border-color-light;
+		border-bottom: 1px solid $border-color-light;
+
+		@include media-hover {
+			height: 40rem;
+
+			&:hover {
+				#{$item}-inner {
+					position: relative;
+					overflow: initial;
+					height: auto;
+					z-index: 10;
+
+					&::before {
+						top: -$spacing-scale-4;
+						left: -$spacing-scale-4;
+						width: calc(100% + #{$spacing-scale-8});
+						height: calc(100% + #{$spacing-scale-8});
+						opacity: 1;
+					}
+				}
+
+				#{$item}-hidden-content {
+					display: block;
+				}
+			}
+
+			&-hidden-content {
+				display: none;
+			}
+		}
+
+		@include media-breakpoint-down('xl') {
+			width: 33.33333%;
+		}
+
+		@include media-breakpoint-down('lg') {
+			height: auto;
+
+			&-hidden-content {
+				display: block;
+			}
+
+			.product__title {
+				height: auto;
+			}
+		}
+
+		@include media-breakpoint-down('md') {
+			width: 50%;
+
+			.product__img-container {
+				height: 28rem;
+			}
+		}
+
+		@include media-breakpoint-down('sm') {
+			width: 100%;
+		}
+
+		&--skeleton {
+			padding: $spacing-scale-8;
+			height: auto;
+		}
+
+		&-inner {
+			padding: $spacing-scale-8;
+			height: 100%;
+			overflow: hidden;
+
+			&::before {
+				position: absolute;
+				content: "";
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+
+				background-color: $white;
+				border: 2px solid $color-primary;
+				box-shadow: $box-shadow-lg;
+				border-radius: $border-radius-lg;
+				opacity: 0;
+				transition: opacity 0s, width .15s linear, height .15s linear, top .15s linear, left .15s linear;
+				z-index: -1;
+			}
+		}
+
+		&-hidden-content {
+			padding-top: $spacing-scale-6;
+		}
+	}
+}

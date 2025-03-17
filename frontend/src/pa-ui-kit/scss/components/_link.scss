@@ -1,0 +1,84 @@
+.link {
+	&,
+	&:link,
+	&:visited {
+		position: relative;
+		display: inline-flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		color: $link-color;
+		font-family: $font-family;
+		font-size: $link-small-font-size;
+		font-weight: $link-font-weight;
+		text-decoration: $link-text-decoration;
+		@include disable-tap-highlight-color;
+		user-select: none;
+		cursor: pointer;
+		transition: all .15s ease-out;
+	}
+
+	&:hover:not(&--disabled) {
+		color: $link-hover-color;
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&--disabled {
+		pointer-events: none;
+		opacity: .4;
+	}
+
+	&--focus-visible:not(&--disabled) {
+		border-radius: $btn-border-radius;
+		box-shadow: $btn-focus-box-shadow;
+	}
+
+	&--small {
+		&,
+		&:link,
+		&:visited {
+			font-size: $link-small-font-size;
+		}
+	}
+
+	&--medium {
+		&,
+		&:link,
+		&:visited {
+			font-size: $link-medium-font-size;
+		}
+	}
+
+	&--large {
+		&,
+		&:link,
+		&:visited {
+			font-size: $link-large-font-size;
+		}
+	}
+
+	&--primary {
+		&,
+		&:link,
+		&:visited {
+			color: $color-primary;
+		}
+
+		&:hover {
+			color: $color-secondary;
+		}
+	}
+
+	&__icon {
+		&--left {
+			margin-right: $spacing-scale-4;
+		}
+
+		&--right {
+			margin-left: $spacing-scale-1;
+		}
+	}
+}
